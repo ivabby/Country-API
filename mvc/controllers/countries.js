@@ -3,6 +3,10 @@ const request = require("request");
 
 const domainPath = "http://localhost:3000";
 
+if(process.env.NODE_ENV === "production") {
+    domainPath = "https://desolate-caverns-81788.herokuapp.com";
+}
+
 getCountryList = function(req, res, next) {
     const path = "/api/countries";
     const requestOptions = {
