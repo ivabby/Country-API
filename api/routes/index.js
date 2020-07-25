@@ -7,13 +7,11 @@ let countryCtrl = require('../controllers/countries');
 
 let apiGuard = function(req,res,next){
 
-    next();
-
-    // if(req.get("host") !== "localhost:3000") {
-    //     res.json({error : "Cannot Create, Update nor Delete Countries from API while in production."});
-    // } else {
-    //     next();
-    // }
+    if(req.get("host") !== "localhost:3000") {
+        res.json({error : "Cannot Create, Update nor Delete Countries from API while in production."});
+    } else {
+        next();
+    }
 }
 
 router.route("/countries/new")
