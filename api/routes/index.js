@@ -24,7 +24,7 @@ router.route("/countries/:countryid/edit")
 router.route("/countries/:countryid")
     .get(countryCtrl.getCountry)
     .put(countryCtrl.editCountry)
-    .delete(countryCtrl.deleteCountry);
+    .delete(apiGuard , countryCtrl.deleteCountry);
 
 router.route("/countries")
     .get(countryCtrl.getCountries)
